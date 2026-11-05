@@ -1,4 +1,4 @@
-name: .NET Core CI
+name: Quy Trình Kiểm Thử Tự Động .NET
 
 on:
   push:
@@ -7,23 +7,23 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-and-test:
+  kiem-thu-va-dong-goi:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout mã nguồn
+    - name: Tải mã nguồn về máy ảo
       uses: actions/checkout@v4
 
-    - name: Cài đặt môi trường .NET
+    - name: Cài đặt môi trường .NET SDK
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x' # Hoặc phiên bản .NET bạn đang dùng (7.0, 8.0, 9.0)
+        dotnet-version: '8.0.x'
 
-    - name: Tải các thư viện phụ thuộc (Restore)
+    - name: Khôi phục các thư viện phụ thuộc
       run: dotnet restore
 
-    - name: Biên dịch mã nguồn (Build)
+    - name: Biên dịch toàn bộ dự án
       run: dotnet build --no-restore --configuration Release
 
-    - name: Chạy kiểm thử tự động (Unit Test)
+    - name: Chạy các bài kiểm thử Unit Test
       run: dotnet test --no-build --configuration Release --verbosity normal
