@@ -1,22 +1,22 @@
-# Hướng Dẫn Đóng Góp Dự Án - Nhóm 6
+# Hướng Dẫn Đóng Góp Vào Dự Án (Contributing Guide)
 
-Chào mừng các thành viên tham gia phát triển dự án **Website Bán Phần Mềm Bản Quyền**.
+Chào mừng bạn đến với dự án **Website Bán Phần Mềm Bản Quyền - Nhóm 6**.
 
-## 1. Quy tắc làm việc với nhánh (Git Branch)
-- Tuyệt đối không đẩy mã nguồn (commit/push) trực tiếp lên nhánh `main`.
-- Mỗi tính năng hoặc sửa lỗi phải tạo trên một nhánh riêng biệt:
-  - Tính năng mới: `feature/ten-tinh-nang` (Ví dụ: `feature/dang-nhap`, `feature/xuat-kho-key`)
-  - Sửa lỗi: `fix/ten-loi` (Ví dụ: `fix/loi-gio-hang`)
+## 1. Quy trình làm việc (Git Workflow)
+- Mọi thành viên **không được commit trực tiếp lên nhánh `main`**.
+- Mỗi tính năng hoặc sửa lỗi phải được tạo trên một nhánh riêng từ nhánh `main`:
+  - Tính năng mới: `feature/ten-tinh-nang` (Ví dụ: `feature/product-detail`)
+  - Sửa lỗi: `fix/ten-loi` (Ví dụ: `fix/cart-calculation-error`)
 
-## 2. Quy chuẩn đặt tên thông điệp Commit
-- `feat:` Thêm một chức năng mới cho người dùng.
-- `fix:` Sửa lỗi phát sinh trong chương trình.
-- `docs:` Viết hoặc chỉnh sửa tài liệu hướng dẫn.
-- `test:` Viết thêm các ca kiểm thử Unit Test.
-- `chore:` Cài đặt thư viện, cấu hình công cụ dự án.
+## 2. Quy chuẩn đặt tên Commit (Conventional Commits)
+- `feat:` Khi thêm tính năng mới.
+- `fix:` Khi sửa lỗi.
+- `docs:` Khi chỉnh sửa tài liệu.
+- `test:` Khi viết mã kiểm thử Unit Test.
+- `chore:` Khi cấu hình thư viện, cài đặt dự án.
 
-## 3. Quy trình gửi và duyệt Pull Request (PR)
-1. Đẩy nhánh lên GitHub và tạo Pull Request vào nhánh `main`.
-2. Hệ thống kiểm thử tự động (CI) sẽ chạy để kiểm tra lỗi build.
-3. Người quản trị (Maintainer) sẽ đọc và nhận xét mã nguồn (Review code).
-4. Sau khi được duyệt (Approve), mã nguồn mới chính thức được gộp (Merge) vào nhánh `main`.
+## 3. Quy trình gửi Pull Request (PR)
+1. Đẩy nhánh của bạn lên GitHub: `git push origin feature/...`
+2. Mở Pull Request trỏ vào nhánh `main`.
+3. Chờ hệ thống GitHub Actions kiểm tra (CI Build & Test).
+4. Maintainer sẽ xem xét, nhận xét (Review code) và chấp thuận (Approve) trước khi tiến hành Merge.
