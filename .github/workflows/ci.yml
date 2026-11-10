@@ -1,0 +1,29 @@
+name: Quy Trình Kiểm Thử Tự Động .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  kiem-thu-va-dong-goi:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Tải mã nguồn về máy ảo
+      uses: actions/checkout@v4
+
+    - name: Cài đặt môi trường .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Khôi phục các thư viện phụ thuộc
+      run: dotnet restore
+
+    - name: Biên dịch toàn bộ dự án
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Chạy các bài kiểm thử Unit Test
+      run: dotnet test --no-build --configuration Release --verbosity normal
