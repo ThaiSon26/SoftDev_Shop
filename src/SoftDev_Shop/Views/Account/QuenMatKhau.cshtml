@@ -1,0 +1,62 @@
+@model SoftDev_Shop.ViewModels.QuenMatKhauViewModel
+@{
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+    ViewData["Title"] = "Quên mật khẩu";
+}
+
+<div class="auth-container">
+    <div class="auth-top-badge">
+        <span class="auth-badge-pill">
+            <i class="bi bi-shield-lock"></i>
+        </span>
+        <span class="auth-badge-text">Khôi phục tài khoản</span>
+    </div>
+
+    <div class="auth-card">
+        <h2 class="auth-title mb-2">Quên mật khẩu?</h2>
+        <p class="text-muted text-center small mb-4">Nhập email đăng ký tài khoản của bạn để nhận liên kết khôi phục mật khẩu.</p>
+
+        @if (!ViewData.ModelState.IsValid && ViewData.ModelState[string.Empty]?.Errors.Count > 0)
+        {
+            <div class="auth-alert-danger">
+                <i class="bi bi-exclamation-circle-fill fs-5"></i>
+                <div>
+                    @foreach (var error in ViewData.ModelState[string.Empty]!.Errors)
+                    {
+                        <div>@error.ErrorMessage</div>
+                    }
+                </div>
+            </div>
+        }
+
+        <form asp-controller="Account" asp-action="QuenMatKhau" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="auth-field-group">
+                <label asp-for="Email" class="auth-label">Địa chỉ Email</label>
+                <div class="auth-input-wrapper">
+                    <input asp-for="Email" class="auth-input-control" placeholder="example@gmail.com" autocomplete="email" />
+                    <i class="bi bi-envelope-fill auth-icon-left"></i>
+                </div>
+                <span asp-validation-for="Email" class="text-danger small mt-1 d-block fw-semibold"></span>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn-auth-primary">
+                    <span>Gửi yêu cầu đặt lại mật khẩu</span>
+                </button>
+            </div>
+
+            <div class="text-center mt-4">
+                <a asp-controller="Account" asp-action="DangNhap" class="auth-forgot-link d-inline-flex align-items-center gap-1">
+                    <i class="bi bi-arrow-left"></i> Quay lại đăng nhập
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
