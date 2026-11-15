@@ -1,0 +1,48 @@
+@{
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+    ViewData["Title"] = "Xác nhận yêu cầu";
+    var email = ViewBag.SubmittedEmail as string;
+    var resetLink = ViewBag.ResetLink as string;
+}
+
+<div class="auth-container">
+    <div class="auth-top-badge">
+        <span class="auth-badge-pill">
+            <i class="bi bi-envelope-check"></i>
+        </span>
+        <span class="auth-badge-text">Yêu cầu đã được gửi</span>
+    </div>
+
+    <div class="auth-card text-center">
+        <div style="width: 68px; height: 68px; border-radius: 50%; background: #e0e7ff; color: #4338ca; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 20px; box-shadow: 0 4px 16px rgba(67, 56, 202, 0.15);">
+            <i class="bi bi-send-check-fill"></i>
+        </div>
+
+        <h2 class="auth-title mb-2">Kiểm tra hòm thư của bạn</h2>
+        <p class="text-muted small mb-3">
+            Nếu email <strong>@email</strong> tồn tại trên hệ thống, liên kết đặt lại mật khẩu đã được gửi đến bạn và có hiệu lực trong vòng 30 phút.
+        </p>
+
+        @if (!string.IsNullOrEmpty(resetLink))
+        {
+            <div class="p-3 my-3 text-start bg-light border rounded-3" style="font-size: 0.85rem;">
+                <div class="fw-bold text-primary mb-1">
+                    <i class="bi bi-link-45deg"></i> Liên kết đặt lại mật khẩu (Môi trường Dev):
+                </div>
+                <div class="text-break">
+                    <a href="@resetLink" class="fw-semibold text-decoration-none">@resetLink</a>
+                </div>
+                <div class="mt-2">
+                    <a href="@resetLink" class="btn btn-sm btn-primary w-100 fw-bold">Bấm vào đây để đặt lại mật khẩu</a>
+                </div>
+            </div>
+        }
+
+        <div class="mt-4">
+            <a asp-controller="Account" asp-action="DangNhap" class="btn btn-outline-secondary px-4 py-2 rounded-3 fw-bold">
+                <i class="bi bi-arrow-left me-1"></i> Quay lại trang Đăng nhập
+            </a>
+        </div>
+    </div>
+</div>
+

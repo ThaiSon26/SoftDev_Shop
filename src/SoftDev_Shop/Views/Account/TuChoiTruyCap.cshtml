@@ -1,0 +1,23 @@
+@{
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+    ViewData["Title"] = "Từ chối truy cập (403)";
+}
+
+<div class="auth-container">
+    <div class="auth-card access-denied-card">
+        <div class="access-denied-icon">
+            <i class="bi bi-shield-x"></i>
+        </div>
+        <h2 class="auth-title mb-2">Quyền truy cập bị từ chối</h2>
+        <p class="text-muted mb-4">Bạn không có đặc quyền để truy cập vào tài nguyên này. Vui lòng liên hệ quản trị viên hoặc quay lại trang chủ.</p>
+        <div class="d-flex gap-2 justify-content-center">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary px-4 py-2 rounded-3 fw-bold">
+                <i class="bi bi-house me-1"></i> Trang chủ
+            </a>
+            <a asp-controller="Account" asp-action="DangNhap" class="btn btn-primary px-4 py-2 rounded-3 fw-bold" style="background: var(--primary-blue); border-color: var(--primary-blue);">
+                <i class="bi bi-box-arrow-in-right me-1"></i> Đăng nhập tài khoản khác
+            </a>
+        </div>
+    </div>
+</div>
+
