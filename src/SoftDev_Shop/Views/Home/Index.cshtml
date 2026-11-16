@@ -1,8 +1,298 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Trang chủ - Developer Marketplace Phần Mềm";
+    var categories = ViewBag.Categories as List<SoftDev_Shop.Models.Danhmuc> ?? new();
+    var partners = ViewBag.Partners as List<SoftDev_Shop.Models.Doitac> ?? new();
+    var featuredProducts = ViewBag.FeaturedProducts as List<SoftDev_Shop.Models.Sanpham> ?? new();
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- HERO BANNER SECTION (White + Blue + Clean SaaS) -->
+<section class="py-5" style="background: radial-gradient(circle at 50% 0%, #e0e7ff 0%, #f0f4fd 50%, #f8fafc 100%);">
+    <div class="container py-4 text-center">
+        <!-- Pill Tagline -->
+        <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-white border shadow-sm mb-4">
+            <span class="badge bg-primary rounded-pill">Mới</span>
+            <span class="fw-bold text-dark small">Kho bản quyền phần mềm lập trình & tiện ích #1</span>
+            <i class="bi bi-arrow-right text-primary"></i>
+        </div>
+
+        <h1 class="display-4 fw-bolder text-dark mb-3" style="letter-spacing: -1px;">
+            Bản Quyền Phần Mềm Chính Hãng <br />
+            <span style="background: linear-gradient(135deg, #2563eb, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Dành Cho Nhà Phát Triển & Doanh Nghiệp</span>
+        </h1>
+
+        <p class="lead text-muted mx-auto mb-4" style="max-width: 680px;">
+            Giao key tự động trong 30 giây. Cam kết kích hoạt online 100%, hỗ trợ kỹ thuật 24/7 và bảo hành trọn đời theo chính sách của nhà cung cấp.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="d-flex justify-content-center gap-3 mb-5">
+            <a href="#featured-products" class="btn btn-primary rounded-pill px-4 py-3 fw-bold shadow" style="background: linear-gradient(135deg, #4f46e5, #2563eb); border: none;">
+                <i class="bi bi-cart-check me-2"></i> Khám phá sản phẩm
+            </a>
+            <a asp-controller="Account" asp-action="DangKy" class="btn btn-white bg-white border rounded-pill px-4 py-3 fw-bold text-dark shadow-sm">
+                <i class="bi bi-person-plus me-2"></i> Trở thành thành viên
+            </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="row g-3 justify-content-center pt-3 border-top" style="max-width: 900px; margin: 0 auto;">
+            <div class="col-md-3 col-6 text-center">
+                <div class="fw-bold text-dark"><i class="bi bi-lightning-charge-fill text-warning me-1"></i> Kích hoạt tức thì</div>
+                <div class="small text-muted">Nhận key qua email & web</div>
+            </div>
+            <div class="col-md-3 col-6 text-center">
+                <div class="fw-bold text-dark"><i class="bi bi-patch-check-fill text-primary me-1"></i> Chính hãng 100%</div>
+                <div class="small text-muted">Nguồn từ đối tác uy tín</div>
+            </div>
+            <div class="col-md-3 col-6 text-center">
+                <div class="fw-bold text-dark"><i class="bi bi-shield-lock-fill text-success me-1"></i> Bảo hành trọn gói</div>
+                <div class="small text-muted">Đổi mới nếu lỗi key</div>
+            </div>
+            <div class="col-md-3 col-6 text-center">
+                <div class="fw-bold text-dark"><i class="bi bi-headset text-indigo me-1" style="color: #6366f1;"></i> Hỗ trợ cài đặt</div>
+                <div class="small text-muted">UltraView / AnyDesk</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BENTO GRID CATEGORIES SECTION -->
+<section class="py-5" id="bento-categories">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="badge bg-light text-primary border px-3 py-2 rounded-pill fw-bold mb-2">HỆ SINH THÁI</span>
+            <h2 class="fw-bolder text-dark">Danh Mục Bản Quyền Hàng Đầu</h2>
+            <p class="text-muted small">Khám phá các bộ công cụ hàng đầu được tuyển chọn cho lập trình viên và sáng tạo nội dung</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Bento Box 1: Lớn (Hero Box) -->
+            <div class="col-lg-6">
+                <div class="card h-100 p-4 rounded-4 border-0 shadow-sm" style="background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%); border: 1px solid #e0e7ff !important;">
+                    <div class="d-flex justify-content-between align-items-start mb-4">
+                        <div class="rounded-4 p-3 text-white" style="background: linear-gradient(135deg, #4f46e5, #6366f1); width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-cpu fs-3"></i>
+                        </div>
+                        <span class="badge bg-primary rounded-pill px-3 py-2">Khuyên dùng</span>
+                    </div>
+                    <h4 class="fw-bold text-dark mb-2">Developer Tools & IDEs</h4>
+                    <p class="text-muted">Bộ công cụ lập trình cao cấp: JetBrains All Products Pack, Visual Studio Professional, GitHub Copilot và các giải pháp đám mây.</p>
+                    <div class="mt-auto pt-3">
+                        <a href="javascript:void(0)" class="fw-bold text-primary text-decoration-none d-flex align-items-center gap-1">
+                            Xem 24+ sản phẩm <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bento Box 2 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 p-4 rounded-4 border-0 shadow-sm bg-white" style="border: 1px solid #f1f5f9 !important;">
+                    <div class="rounded-4 p-3 text-white mb-3" style="background: linear-gradient(135deg, #0284c7, #38bdf8); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-windows fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Windows & Office</h5>
+                    <p class="text-muted small">Windows 11 Pro, Office 2024, Microsoft 365 bản quyền vĩnh viễn.</p>
+                    <div class="mt-auto">
+                        <a href="javascript:void(0)" class="fw-bold text-primary small text-decoration-none">Khám phá <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bento Box 3 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 p-4 rounded-4 border-0 shadow-sm bg-white" style="border: 1px solid #f1f5f9 !important;">
+                    <div class="rounded-4 p-3 text-white mb-3" style="background: linear-gradient(135deg, #dc2626, #f87171); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-brush fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Đồ Họa & Video</h5>
+                    <p class="text-muted small">Adobe Creative Cloud trọn bộ, Photoshop, Premiere Pro, Illustrator.</p>
+                    <div class="mt-auto">
+                        <a href="javascript:void(0)" class="fw-bold text-primary small text-decoration-none">Khám phá <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bento Box 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 p-4 rounded-4 border-0 shadow-sm bg-white" style="border: 1px solid #f1f5f9 !important;">
+                    <div class="rounded-4 p-3 text-white mb-3" style="background: linear-gradient(135deg, #059669, #34d399); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-shield-check fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Bảo Mật & Diệt Virus</h5>
+                    <p class="text-muted small">Kaspersky, ESET Internet Security, Bitdefender bảo vệ hệ thống tuyệt đối.</p>
+                    <div class="mt-auto">
+                        <a href="javascript:void(0)" class="fw-bold text-primary small text-decoration-none">Khám phá <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bento Box 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 p-4 rounded-4 border-0 shadow-sm bg-white" style="border: 1px solid #f1f5f9 !important;">
+                    <div class="rounded-4 p-3 text-white mb-3" style="background: linear-gradient(135deg, #d97706, #fbbf24); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-cloud-arrow-up fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Lưu Trữ & Cloud</h5>
+                    <p class="text-muted small">Google One, OneDrive 1TB, Dropbox Pro giải pháp lưu trữ dữ liệu an toàn.</p>
+                    <div class="mt-auto">
+                        <a href="javascript:void(0)" class="fw-bold text-primary small text-decoration-none">Khám phá <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bento Box 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 p-4 rounded-4 border-0 shadow-sm bg-white" style="border: 1px solid #f1f5f9 !important;">
+                    <div class="rounded-4 p-3 text-white mb-3" style="background: linear-gradient(135deg, #7c3aed, #a78bfa); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                        <i class="bi bi-robot fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Trí Tuệ Nhân Tạo (AI)</h5>
+                    <p class="text-muted small">ChatGPT Plus, Claude Pro, Midjourney, Cursor AI cho nhà phát triển.</p>
+                    <div class="mt-auto">
+                        <a href="javascript:void(0)" class="fw-bold text-primary small text-decoration-none">Khám phá <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED PRODUCTS SECTION -->
+<section class="py-5 bg-white" id="featured-products">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <span class="badge bg-light text-primary border px-3 py-2 rounded-pill fw-bold mb-2">BÁN CHẠY NHẤT</span>
+                <h2 class="fw-bolder text-dark mb-0">Sản Phẩm Bản Quyền Nổi Bật</h2>
+            </div>
+            <a href="javascript:void(0)" class="btn btn-outline-primary rounded-pill px-4 fw-bold">
+                Xem toàn bộ kho hàng <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+        </div>
+
+        <div class="row g-4">
+            <!-- Product Card 1: Microsoft 365 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 rounded-4 border-0 shadow-sm p-3 position-relative" style="border: 1px solid #f1f5f9 !important; transition: all 0.25s ease;">
+                    <span class="position-absolute top-0 start-0 m-3 badge rounded-pill bg-danger fw-bold">-35%</span>
+                    <div class="text-center p-3 rounded-4 bg-light mb-3">
+                        <img src="~/image/microsoft-365-basic.webp" alt="Microsoft 365" class="img-fluid" style="height: 120px; object-fit: contain;" onerror="this.src='/favicon.ico';" />
+                    </div>
+                    <div class="badge bg-light text-secondary border rounded-pill px-2 py-1 small mb-2 align-self-start">Văn phòng & Lưu trữ</div>
+                    <h6 class="fw-bold text-dark mb-1">Microsoft 365 Business Basic</h6>
+                    <p class="text-muted small mb-3">Tài khoản chính chủ, 1TB OneDrive, Word, Excel, Teams online.</p>
+                    <div class="mt-auto d-flex align-items-center justify-content-between pt-2 border-top">
+                        <div>
+                            <span class="fw-bolder text-primary fs-5">₫290.000</span>
+                            <div class="text-muted small text-decoration-line-through">₫450.000</div>
+                        </div>
+                        <button class="btn btn-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;" title="Thêm vào giỏ">
+                            <i class="bi bi-cart-plus fs-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 2: Adobe After Effect -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 rounded-4 border-0 shadow-sm p-3 position-relative" style="border: 1px solid #f1f5f9 !important;">
+                    <span class="position-absolute top-0 start-0 m-3 badge rounded-pill bg-success fw-bold">Hot</span>
+                    <div class="text-center p-3 rounded-4 bg-light mb-3">
+                        <img src="~/image/adobe-after-effect.png.webp" alt="Adobe After Effect" class="img-fluid" style="height: 120px; object-fit: contain;" onerror="this.src='/favicon.ico';" />
+                    </div>
+                    <div class="badge bg-light text-secondary border rounded-pill px-2 py-1 small mb-2 align-self-start">Đồ họa & Kỹ xảo</div>
+                    <h6 class="fw-bold text-dark mb-1">Adobe After Effects 1 Năm</h6>
+                    <p class="text-muted small mb-3">Nâng cấp trực tiếp email chính chủ, 100GB Cloud lưu trữ.</p>
+                    <div class="mt-auto d-flex align-items-center justify-content-between pt-2 border-top">
+                        <div>
+                            <span class="fw-bolder text-primary fs-5">₫850.000</span>
+                            <div class="text-muted small text-decoration-line-through">₫1.200.000</div>
+                        </div>
+                        <button class="btn btn-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;" title="Thêm vào giỏ">
+                            <i class="bi bi-cart-plus fs-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 3: Adobe Animate -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 rounded-4 border-0 shadow-sm p-3 position-relative" style="border: 1px solid #f1f5f9 !important;">
+                    <div class="text-center p-3 rounded-4 bg-light mb-3">
+                        <img src="~/image/adobe-animate.png.webp" alt="Adobe Animate" class="img-fluid" style="height: 120px; object-fit: contain;" onerror="this.src='/favicon.ico';" />
+                    </div>
+                    <div class="badge bg-light text-secondary border rounded-pill px-2 py-1 small mb-2 align-self-start">Hoạt hình & Game</div>
+                    <h6 class="fw-bold text-dark mb-1">Adobe Animate Bản Quyền</h6>
+                    <p class="text-muted small mb-3">Sáng tạo nội dung vector, game hoạt hình 2D chuyên nghiệp.</p>
+                    <div class="mt-auto d-flex align-items-center justify-content-between pt-2 border-top">
+                        <div>
+                            <span class="fw-bolder text-primary fs-5">₫690.000</span>
+                            <div class="text-muted small text-decoration-line-through">₫950.000</div>
+                        </div>
+                        <button class="btn btn-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;" title="Thêm vào giỏ">
+                            <i class="bi bi-cart-plus fs-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 4: Exchange Online -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 rounded-4 border-0 shadow-sm p-3 position-relative" style="border: 1px solid #f1f5f9 !important;">
+                    <div class="text-center p-3 rounded-4 bg-light mb-3">
+                        <img src="~/image/exchange-online.webp" alt="Exchange Online" class="img-fluid" style="height: 120px; object-fit: contain;" onerror="this.src='/favicon.ico';" />
+                    </div>
+                    <div class="badge bg-light text-secondary border rounded-pill px-2 py-1 small mb-2 align-self-start">Email Doanh Nghiệp</div>
+                    <h6 class="fw-bold text-dark mb-1">Microsoft Exchange Online Plan 1</h6>
+                    <p class="text-muted small mb-3">50GB hộp thư lưu trữ, bảo mật cấp doanh nghiệp, tích hợp Outlook.</p>
+                    <div class="mt-auto d-flex align-items-center justify-content-between pt-2 border-top">
+                        <div>
+                            <span class="fw-bolder text-primary fs-5">₫120.000</span>
+                            <div class="text-muted small text-decoration-line-through">₫180.000</div>
+                        </div>
+                        <button class="btn btn-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;" title="Thêm vào giỏ">
+                            <i class="bi bi-cart-plus fs-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PARTNERS SECTION -->
+<section class="py-5" id="partners-section" style="background: #f8fafc;">
+    <div class="container text-center">
+        <span class="badge bg-light text-primary border px-3 py-2 rounded-pill fw-bold mb-2">ĐỐI TÁC CHÍNH THỨC</span>
+        <h3 class="fw-bold text-dark mb-4">Các Nhà Phân Phối Bản Quyền Hàng Đầu</h3>
+
+        <div class="row g-4 justify-content-center align-items-center pt-2">
+            <div class="col-md-2 col-4">
+                <div class="p-3 bg-white rounded-4 border shadow-sm fw-bold text-secondary">
+                    <i class="bi bi-microsoft fs-3 text-primary d-block mb-1"></i> Microsoft
+                </div>
+            </div>
+            <div class="col-md-2 col-4">
+                <div class="p-3 bg-white rounded-4 border shadow-sm fw-bold text-secondary">
+                    <i class="bi bi-palette-fill fs-3 text-danger d-block mb-1"></i> Adobe
+                </div>
+            </div>
+            <div class="col-md-2 col-4">
+                <div class="p-3 bg-white rounded-4 border shadow-sm fw-bold text-secondary">
+                    <i class="bi bi-shield-shaded fs-3 text-success d-block mb-1"></i> Kaspersky
+                </div>
+            </div>
+            <div class="col-md-2 col-4">
+                <div class="p-3 bg-white rounded-4 border shadow-sm fw-bold text-secondary">
+                    <i class="bi bi-code-slash fs-3 text-indigo d-block mb-1" style="color: #6366f1;"></i> JetBrains
+                </div>
+            </div>
+            <div class="col-md-2 col-4">
+                <div class="p-3 bg-white rounded-4 border shadow-sm fw-bold text-secondary">
+                    <i class="bi bi-github fs-3 text-dark d-block mb-1"></i> GitHub
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
