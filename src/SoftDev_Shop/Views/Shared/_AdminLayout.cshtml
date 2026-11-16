@@ -51,17 +51,34 @@
                     </a>
                 </li>
 
-                <!-- 2. Sản phẩm -->
+                <!-- 2. Danh mục -->
                 <li>
                     <a asp-controller="Admin" asp-action="DanhMuc"
                         class="sidebar-menu-link @(currentController == "Admin" && currentAction == "DanhMuc" ? "active" : "")">
-                        <i class="bi bi-box-seam menu-icon"></i>
+                        <i class="bi bi-grid-fill menu-icon"></i>
                         <span>Danh mục</span>
+                    </a>
+                </li>
+
+                <!-- 3. Đối tác (Nhà phân phối) -->
+                <li>
+                    <a asp-controller="Admin" asp-action="DoiTac"
+                        class="sidebar-menu-link @(currentController == "Admin" && currentAction == "DoiTac" ? "active" : "")">
+                        <i class="bi bi-buildings-fill menu-icon"></i>
+                        <span>Đối tác</span>
+                    </a>
+                </li>
+
+                <!-- 4. Sản phẩm -->
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-menu-link">
+                        <i class="bi bi-box-seam menu-icon"></i>
+                        <span>Sản phẩm</span>
                         <i class="bi bi-chevron-down chevron-arrow"></i>
                     </a>
                 </li>
 
-                <!-- 3. Đơn hàng (Kèm badge đỏ số 3) -->
+                <!-- 5. Đơn hàng (Kèm badge đỏ số 3) -->
                 <li>
                     <a href="javascript:void(0)" class="sidebar-menu-link">
                         <i class="bi bi-cart3 menu-icon"></i>
@@ -70,7 +87,7 @@
                     </a>
                 </li>
 
-                <!-- 4. Người dùng -->
+                <!-- 6. Người dùng -->
                 <li>
                     <a href="javascript:void(0)" class="sidebar-menu-link">
                         <i class="bi bi-people menu-icon"></i>
@@ -78,7 +95,7 @@
                     </a>
                 </li>
 
-                <!-- 5. Đánh giá -->
+                <!-- 7. Đánh giá -->
                 <li>
                     <a href="javascript:void(0)" class="sidebar-menu-link">
                         <i class="bi bi-star menu-icon"></i>
@@ -86,7 +103,7 @@
                     </a>
                 </li>
 
-                <!-- 6. Hỗ trợ -->
+                <!-- 8. Hỗ trợ -->
                 <li>
                     <a href="javascript:void(0)" class="sidebar-menu-link">
                         <i class="bi bi-headset menu-icon"></i>
@@ -95,7 +112,7 @@
                     </a>
                 </li>
 
-                <!-- 7. Thống kê -->
+                <!-- 9. Thống kê -->
                 <li>
                     <a href="javascript:void(0)" class="sidebar-menu-link">
                         <i class="bi bi-bar-chart-line menu-icon"></i>
@@ -103,7 +120,7 @@
                     </a>
                 </li>
 
-                <!-- 8. Cài đặt -->
+                <!-- 10. Cài đặt -->
                 <li>
                     <a href="javascript:void(0)" class="sidebar-menu-link">
                         <i class="bi bi-gear menu-icon"></i>
