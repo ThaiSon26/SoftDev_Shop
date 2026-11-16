@@ -100,6 +100,14 @@ public class AccountController : Controller
         {
             return Redirect(returnUrl);
         }
+        // Phân quyền điều hướng sau khi đăng nhập:
+        // Nếu là Quản trị hoặc Nhân viên -> Vào Dashboard Quản trị
+        // Nếu là Khách hàng -> Vào Trang chủ Cửa hàng
+        if (string.Equals(user.VaiTro, "Quản trị", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(user.VaiTro, "Nhân viên", StringComparison.OrdinalIgnoreCase))
+        {
+            return RedirectToAction("Dashboard", "Admin");
+        }
 
         return RedirectToAction("Index", "Home");
     }
