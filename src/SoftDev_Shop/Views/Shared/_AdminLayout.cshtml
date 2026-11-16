@@ -5,6 +5,7 @@
 }
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +14,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Bootstrap CSS -->
@@ -21,6 +24,7 @@
     <!-- Admin Dark Nav + Clean Bento SaaS Style (Hình số 2) -->
     <link rel="stylesheet" href="~/css/admin-clean.css" asp-append-version="true" />
 </head>
+
 <body>
     <div class="admin-layout-wrapper">
         <!-- SIDEBAR DARK (Chuẩn Hình số 2) -->
@@ -40,7 +44,8 @@
             <ul class="sidebar-menu-list">
                 <!-- 1. Tổng quan (Active dạng viên thuốc xanh) -->
                 <li>
-                    <a asp-controller="Admin" asp-action="Dashboard" class="sidebar-menu-link @(currentController == "Admin" && currentAction == "Dashboard" ? "active" : "")">
+                    <a asp-controller="Admin" asp-action="Dashboard"
+                        class="sidebar-menu-link @(currentController == "Admin" && currentAction == "Dashboard" ? "active" : "")">
                         <i class="bi bi-house-door-fill menu-icon"></i>
                         <span>Tổng quan</span>
                     </a>
@@ -48,9 +53,10 @@
 
                 <!-- 2. Sản phẩm -->
                 <li>
-                    <a asp-controller="Admin" asp-action="DanhMuc" class="sidebar-menu-link @(currentController == "Admin" && currentAction == "DanhMuc" ? "active" : "")">
+                    <a asp-controller="Admin" asp-action="DanhMuc"
+                        class="sidebar-menu-link @(currentController == "Admin" && currentAction == "DanhMuc" ? "active" : "")">
                         <i class="bi bi-box-seam menu-icon"></i>
-                        <span>Sản phẩm</span>
+                        <span>Danh mục</span>
                         <i class="bi bi-chevron-down chevron-arrow"></i>
                     </a>
                 </li>
@@ -120,7 +126,8 @@
             <!-- Footer User Profile & Logout -->
             <div class="sidebar-user-footer">
                 <div class="user-profile-wrap">
-                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=AdminSoftDev" alt="Admin" class="user-avatar-img" />
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=AdminSoftDev" alt="Admin"
+                        class="user-avatar-img" />
                     <div class="user-name-role">
                         <span class="user-name-text">Admin <span style="color: #22c55e;">&bull;</span></span>
                         <span class="user-role-text">Quản trị viên</span>
@@ -142,7 +149,8 @@
                 <!-- Search Input Bar with Ctrl + K shortcut -->
                 <div class="topbar-search-group">
                     <i class="bi bi-search topbar-search-icon"></i>
-                    <input type="text" class="topbar-search-input" placeholder="Tìm kiếm... (VD: phần mềm, người dùng...)" />
+                    <input type="text" class="topbar-search-input"
+                        placeholder="Tìm kiếm... (VD: phần mềm, người dùng...)" />
                     <span class="topbar-kbd-shortcut">Ctrl + K</span>
                 </div>
 
@@ -160,13 +168,15 @@
                     </button>
 
                     <!-- Storefront Switch -->
-                    <a asp-controller="Home" asp-action="Index" class="btn-topbar-action" title="Xem Cửa Hàng" target="_blank">
+                    <a asp-controller="Home" asp-action="Index" class="btn-topbar-action" title="Xem Cửa Hàng"
+                        target="_blank">
                         <i class="bi bi-shop"></i>
                     </a>
 
                     <!-- User Pill -->
                     <div class="topbar-user-pill">
-                        <img src="https://api.dicebear.com/7.x/bottts/svg?seed=AdminSoftDev" alt="User" class="topbar-user-avatar" />
+                        <img src="https://api.dicebear.com/7.x/bottts/svg?seed=AdminSoftDev" alt="User"
+                            class="topbar-user-avatar" />
                         <span class="topbar-user-name">Admin</span>
                         <i class="bi bi-chevron-down small text-muted"></i>
                     </div>
@@ -177,7 +187,8 @@
             <main class="admin-page-container">
                 @if (TempData["SuccessMessage"] != null)
                 {
-                    <div class="alert alert-success alert-dismissible fade show rounded-4 border-0 shadow-sm d-flex align-items-center gap-2 mb-4" role="alert">
+                    <div class="alert alert-success alert-dismissible fade show rounded-4 border-0 shadow-sm d-flex align-items-center gap-2 mb-4"
+                        role="alert">
                         <i class="bi bi-check-circle-fill fs-5 text-success"></i>
                         <div>@TempData["SuccessMessage"]</div>
                         <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -186,7 +197,8 @@
 
                 @if (TempData["ErrorMessage"] != null)
                 {
-                    <div class="alert alert-danger alert-dismissible fade show rounded-4 border-0 shadow-sm d-flex align-items-center gap-2 mb-4" role="alert">
+                    <div class="alert alert-danger alert-dismissible fade show rounded-4 border-0 shadow-sm d-flex align-items-center gap-2 mb-4"
+                        role="alert">
                         <i class="bi bi-exclamation-triangle-fill fs-5 text-danger"></i>
                         <div>@TempData["ErrorMessage"]</div>
                         <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -204,7 +216,7 @@
     <script>
         function toggleFullScreen() {
             if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen().catch(() => {});
+                document.documentElement.requestFullscreen().catch(() => { });
             } else {
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
@@ -214,4 +226,5 @@
     </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
