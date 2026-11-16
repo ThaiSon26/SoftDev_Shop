@@ -5,158 +5,180 @@
 }
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SoftDev Quản Trị</title>
+    <title>@ViewData["Title"] - SoftDev Shop Admin</title>
     <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <!-- Admin Clean Bento SaaS Theme -->
+    <!-- Admin Dark Nav + Clean Bento SaaS Style (Hình số 2) -->
     <link rel="stylesheet" href="~/css/admin-clean.css" asp-append-version="true" />
 </head>
-
 <body>
-    <div class="admin-app-container">
-        <!-- SIDEBAR -->
-        <aside class="admin-sidebar" id="adminSidebar">
-            <div class="sidebar-header">
-                <!-- Nút thương hiệu dạng Pill tím đậm bo góc theo ảnh mẫu -->
-                <a asp-controller="Admin" asp-action="Dashboard" class="brand-pill">
-                    <i class="bi bi-shield-lock-fill fs-5"></i>
-                    <span class="brand-name">Quản trị</span>
-                </a>
-                <button type="button" class="sidebar-toggle" id="sidebarToggleBtn"
-                    aria-label="Thu gọn / Mở rộng Sidebar">
-                    <i class="bi bi-chevron-left"></i>
-                </button>
-            </div>
+    <div class="admin-layout-wrapper">
+        <!-- SIDEBAR DARK (Chuẩn Hình số 2) -->
+        <aside class="admin-sidebar-dark">
+            <!-- Brand Box: Code Icon Gradient + SoftDev Shop -->
+            <a asp-controller="Admin" asp-action="Dashboard" class="sidebar-brand-box">
+                <div class="brand-icon-sq">
+                    <i class="bi bi-code-slash"></i>
+                </div>
+                <div class="brand-title-wrap">
+                    <span class="brand-title-main">SoftDev Shop</span>
+                    <span class="brand-title-sub">Admin Panel</span>
+                </div>
+            </a>
 
-            <nav class="sidebar-nav">
-                <!-- 1. Tổng quan (Dashboard) -->
-                <a asp-controller="Admin" asp-action="Dashboard"
-                    class="nav-item @(currentController == "Admin" && currentAction == "Dashboard" ? "active" : "")">
-                    <i class="bi bi-house-door nav-icon"></i>
-                    <span class="nav-label">Tổng quan</span>
-                </a>
+            <!-- Menu Navigation List -->
+            <ul class="sidebar-menu-list">
+                <!-- 1. Tổng quan (Active dạng viên thuốc xanh) -->
+                <li>
+                    <a asp-controller="Admin" asp-action="Dashboard" class="sidebar-menu-link @(currentController == "Admin" && currentAction == "Dashboard" ? "active" : "")">
+                        <i class="bi bi-house-door-fill menu-icon"></i>
+                        <span>Tổng quan</span>
+                    </a>
+                </li>
 
-                <!-- 2. Danh mục -->
-                <a asp-controller="Admin" asp-action="DanhMuc"
-                    class="nav-item @(currentController == "Admin" && currentAction == "DanhMuc" ? "active" : "")">
-                    <i class="bi bi-grid nav-icon"></i>
-                    <span class="nav-label">Danh mục</span>
-                </a>
+                <!-- 2. Sản phẩm -->
+                <li>
+                    <a asp-controller="Admin" asp-action="DanhMuc" class="sidebar-menu-link @(currentController == "Admin" && currentAction == "DanhMuc" ? "active" : "")">
+                        <i class="bi bi-box-seam menu-icon"></i>
+                        <span>Sản phẩm</span>
+                        <i class="bi bi-chevron-down chevron-arrow"></i>
+                    </a>
+                </li>
 
-                <!-- 3. Đối tác -->
-                <a asp-controller="Admin" asp-action="DoiTac"
-                    class="nav-item @(currentController == "Admin" && currentAction == "DoiTac" ? "active" : "")">
-                    <i class="bi bi-buildings nav-icon"></i>
-                    <span class="nav-label">Đối tác</span>
-                </a>
+                <!-- 3. Đơn hàng (Kèm badge đỏ số 3) -->
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-menu-link">
+                        <i class="bi bi-cart3 menu-icon"></i>
+                        <span>Đơn hàng</span>
+                        <span class="badge-count">3</span>
+                    </a>
+                </li>
 
-                <!-- 4. Sản phẩm -->
-                <a href="javascript:void(0)" class="nav-item">
-                    <i class="bi bi-box-seam nav-icon"></i>
-                    <span class="nav-label">Sản phẩm</span>
-                </a>
+                <!-- 4. Người dùng -->
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-menu-link">
+                        <i class="bi bi-people menu-icon"></i>
+                        <span>Người dùng</span>
+                    </a>
+                </li>
 
-                <!-- 5. Đơn hàng -->
-                <a href="javascript:void(0)" class="nav-item">
-                    <i class="bi bi-receipt nav-icon"></i>
-                    <span class="nav-label">Đơn hàng</span>
-                </a>
+                <!-- 5. Đánh giá -->
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-menu-link">
+                        <i class="bi bi-star menu-icon"></i>
+                        <span>Đánh giá</span>
+                    </a>
+                </li>
 
-                <!-- 6. Người dùng -->
-                <a href="javascript:void(0)" class="nav-item">
-                    <i class="bi bi-people nav-icon"></i>
-                    <span class="nav-label">Người dùng</span>
-                </a>
+                <!-- 6. Hỗ trợ -->
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-menu-link">
+                        <i class="bi bi-headset menu-icon"></i>
+                        <span>Hỗ trợ</span>
+                        <i class="bi bi-chevron-down chevron-arrow"></i>
+                    </a>
+                </li>
 
                 <!-- 7. Thống kê -->
-                <a href="javascript:void(0)" class="nav-item">
-                    <i class="bi bi-graph-up-arrow nav-icon"></i>
-                    <span class="nav-label">Thống kê</span>
-                </a>
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-menu-link">
+                        <i class="bi bi-bar-chart-line menu-icon"></i>
+                        <span>Thống kê</span>
+                    </a>
+                </li>
 
                 <!-- 8. Cài đặt -->
-                <a href="javascript:void(0)" class="nav-item">
-                    <i class="bi bi-gear nav-icon"></i>
-                    <span class="nav-label">Cài đặt</span>
-                </a>
-            </nav>
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-menu-link">
+                        <i class="bi bi-gear menu-icon"></i>
+                        <span>Cài đặt</span>
+                        <i class="bi bi-chevron-down chevron-arrow"></i>
+                    </a>
+                </li>
+            </ul>
 
-            <!-- User footer info & Logout -->
-            <div class="sidebar-footer pt-3 mt-auto border-top">
-                <div class="d-flex align-items-center justify-content-between">
-                    <div class="d-flex align-items-center gap-2 overflow-hidden">
-                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
-                            style="width: 36px; height: 36px; font-weight: 700; flex-shrink: 0;">
-                            @(User.Identity?.Name?.Substring(0, 1).ToUpper() ?? "A")
-                        </div>
-                        <div class="overflow-hidden" style="line-height: 1.2;">
-                            <div class="fw-bold text-dark text-truncate" style="font-size: 0.88rem;">
-                                @(User.Identity?.Name ?? "Quản trị viên")</div>
-                            <div class="text-muted text-truncate" style="font-size: 0.75rem;">
-                                @(User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value ?? "Quản trị")</div>
-                        </div>
-                    </div>
-                    <form asp-controller="Account" asp-action="DangXuat" method="post" class="m-0">
-                        @Html.AntiForgeryToken()
-                        <button type="submit" class="btn btn-sm btn-outline-danger border-0 p-1 rounded-circle"
-                            title="Đăng xuất">
-                            <i class="bi bi-box-arrow-right fs-5"></i>
-                        </button>
-                    </form>
+            <!-- Phiên bản hệ thống Card (Rocket Card) -->
+            <div class="sidebar-version-card">
+                <div class="rocket-icon-circle">
+                    <i class="bi bi-rocket-takeoff-fill"></i>
                 </div>
+                <div class="version-title">Phiên bản hệ thống</div>
+                <div class="version-sub">v1.0.0</div>
+                <a href="javascript:void(0)" class="btn-version-action">Xem cập nhật &rarr;</a>
+            </div>
+
+            <!-- Footer User Profile & Logout -->
+            <div class="sidebar-user-footer">
+                <div class="user-profile-wrap">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=AdminSoftDev" alt="Admin" class="user-avatar-img" />
+                    <div class="user-name-role">
+                        <span class="user-name-text">Admin <span style="color: #22c55e;">&bull;</span></span>
+                        <span class="user-role-text">Quản trị viên</span>
+                    </div>
+                </div>
+                <form asp-controller="Account" asp-action="DangXuat" method="post" class="m-0">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn-logout-sidebar" title="Đăng xuất">
+                        <i class="bi bi-box-arrow-right"></i>
+                    </button>
+                </form>
             </div>
         </aside>
 
-        <!-- MAIN CONTENT -->
-        <main class="admin-main">
-            <!-- Header bar -->
-            <header class="admin-topbar">
-                <div class="d-flex align-items-center gap-3">
-                    <button type="button" class="btn btn-light d-md-none p-2 rounded-3" id="topbarSidebarToggleBtn">
-                        <i class="bi bi-list fs-5"></i>
-                    </button>
-                    <h1 class="page-title mb-0">@ViewData["Title"]</h1>
+        <!-- MAIN AREA -->
+        <div class="admin-main-area">
+            <!-- TOPBAR (Chuẩn Hình số 2) -->
+            <header class="admin-topbar-clean">
+                <!-- Search Input Bar with Ctrl + K shortcut -->
+                <div class="topbar-search-group">
+                    <i class="bi bi-search topbar-search-icon"></i>
+                    <input type="text" class="topbar-search-input" placeholder="Tìm kiếm... (VD: phần mềm, người dùng...)" />
+                    <span class="topbar-kbd-shortcut">Ctrl + K</span>
                 </div>
 
-                <div class="topbar-actions">
-                    <div class="search-box">
-                        <i class="bi bi-search search-icon"></i>
-                        <input type="text" placeholder="Tìm kiếm nhanh..." class="search-input" />
-                    </div>
+                <!-- Right Action Icons: Notification, Fullscreen, User Avatar Dropdown -->
+                <div class="topbar-right-controls">
+                    <!-- Notification Bell -->
+                    <button type="button" class="btn-topbar-action" title="Thông báo">
+                        <i class="bi bi-bell"></i>
+                        <span class="notif-badge-pill">5</span>
+                    </button>
 
-                    <a asp-controller="Home" asp-action="Index" class="action-btn" title="Xem cửa hàng khách hàng"
-                        target="_blank">
+                    <!-- Fullscreen Toggle -->
+                    <button type="button" class="btn-topbar-action" onclick="toggleFullScreen()" title="Toàn màn hình">
+                        <i class="bi bi-arrows-fullscreen"></i>
+                    </button>
+
+                    <!-- Storefront Switch -->
+                    <a asp-controller="Home" asp-action="Index" class="btn-topbar-action" title="Xem Cửa Hàng" target="_blank">
                         <i class="bi bi-shop"></i>
                     </a>
 
-                    <button type="button" class="action-btn" title="Cài đặt">
-                        <i class="bi bi-gear-fill"></i>
-                    </button>
-                    <button type="button" class="action-btn" title="Thông báo">
-                        <i class="bi bi-bell-fill"></i>
-                    </button>
+                    <!-- User Pill -->
+                    <div class="topbar-user-pill">
+                        <img src="https://api.dicebear.com/7.x/bottts/svg?seed=AdminSoftDev" alt="User" class="topbar-user-avatar" />
+                        <span class="topbar-user-name">Admin</span>
+                        <i class="bi bi-chevron-down small text-muted"></i>
+                    </div>
                 </div>
             </header>
 
-            <div class="admin-content-area">
+            <!-- PAGE CONTENT CONTAINER -->
+            <main class="admin-page-container">
                 @if (TempData["SuccessMessage"] != null)
                 {
-                    <div class="alert alert-success alert-dismissible fade show rounded-3 shadow-sm d-flex align-items-center gap-2 mb-4"
-                        role="alert">
-                        <i class="bi bi-check-circle-fill fs-5"></i>
+                    <div class="alert alert-success alert-dismissible fade show rounded-4 border-0 shadow-sm d-flex align-items-center gap-2 mb-4" role="alert">
+                        <i class="bi bi-check-circle-fill fs-5 text-success"></i>
                         <div>@TempData["SuccessMessage"]</div>
                         <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
@@ -164,24 +186,32 @@
 
                 @if (TempData["ErrorMessage"] != null)
                 {
-                    <div class="alert alert-danger alert-dismissible fade show rounded-3 shadow-sm d-flex align-items-center gap-2 mb-4"
-                        role="alert">
-                        <i class="bi bi-exclamation-triangle-fill fs-5"></i>
+                    <div class="alert alert-danger alert-dismissible fade show rounded-4 border-0 shadow-sm d-flex align-items-center gap-2 mb-4" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill fs-5 text-danger"></i>
                         <div>@TempData["ErrorMessage"]</div>
                         <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 }
 
                 @RenderBody()
-            </div>
-        </main>
+            </main>
+        </div>
     </div>
 
     <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/admin-toggle.js" asp-append-version="true"></script>
+    <script>
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(() => {});
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
-
 </html>

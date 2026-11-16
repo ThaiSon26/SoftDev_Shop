@@ -1,6 +1,31 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
+@{
+    ViewData["Title"] = "Chính sách bảo mật & Điều khoản";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container py-5" style="max-width: 900px;">
+    <div class="card p-5 rounded-4 border-0 shadow-sm bg-white" style="border: 1px solid #f1f5f9 !important;">
+        <div class="d-inline-flex align-items-center gap-2 mb-3">
+            <span class="badge bg-primary rounded-pill px-3 py-2">Bảo mật</span>
+            <span class="text-muted small">Cập nhật lần cuối: Tháng 11/2026</span>
+        </div>
+
+        <h1 class="fw-bolder text-dark mb-4">Chính Sách Bảo Mật & Bản Quyền SoftDev</h1>
+
+        <div class="content-block text-muted" style="line-height: 1.8;">
+            <h5 class="fw-bold text-dark mt-4">1. Thu thập và bảo vệ thông tin</h5>
+            <p>SoftDev Shop cam kết bảo mật tuyệt đối các thông tin cá nhân của khách hàng bao gồm họ tên, địa chỉ email, số điện thoại và thông tin đơn hàng. Mọi mật khẩu tài khoản đều được mã hóa một chiều bằng thuật toán <strong>BCrypt</strong> an toàn cao trước khi lưu trữ vào hệ thống cơ sở dữ liệu.</p>
+
+            <h5 class="fw-bold text-dark mt-4">2. Quy định bảo hành Bản quyền (License Key)</h5>
+            <p>Tất cả các bản quyền phần mềm và key kích hoạt được phân phối thông qua SoftDev Shop đều có nguồn gốc chính hãng từ các đối tác ủy quyền (Microsoft, Adobe, JetBrains, Kaspersky...). Chúng tôi cam kết bảo hành 1 đổi 1 hoặc hoàn tiền 100% trong trường hợp key không thể kích hoạt do lỗi hệ thống cấp phát.</p>
+
+            <h5 class="fw-bold text-dark mt-4">3. Hỗ trợ kỹ thuật và kích hoạt</h5>
+            <p>Khách hàng có quyền yêu cầu kỹ thuật viên hỗ trợ kích hoạt trực tiếp từ xa qua các ứng dụng UltraView hoặc AnyDesk hoàn toàn miễn phí trong suốt thời gian sử dụng bản quyền.</p>
+
+            <div class="mt-5 pt-4 border-top d-flex gap-3">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary rounded-pill px-4 fw-bold">
+                    <i class="bi bi-arrow-left me-1"></i> Quay lại trang chủ
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
